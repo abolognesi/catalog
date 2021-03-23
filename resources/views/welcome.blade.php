@@ -81,18 +81,39 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Catálogo
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div id="app" class="links">
+                    <div class="title m-b-md">
+                        Categoría
+                    </div>
+                    <div class="alert alert-danger" role="alert" v-bind:class="{hidden: hasError}">
+                        Todos los campos deben ser completados!
+                    </div>
+                    <div class="form-group">
+                        <label for="code">Código</label>
+                        <input type="text" class="form-control" id="code" required placeholder="Código" name="code" v-model="newCategory.code">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" id="name" required placeholder="Nombre" name="name" v-model="newCategory.name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <textarea class="form-control" id="description" name="description" v-model="newCategory.description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="active">Activo</label>
+                        <input type="checkbox" class="form-control" id="active" checked name="active" v-model="newCategory.active">
+                    </div>
+
+                    <button class="btn btn-primary" @click.prevent="createCategory()">
+                        + Crear
+                    </button>
                 </div>
             </div>
         </div>
